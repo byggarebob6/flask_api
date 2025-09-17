@@ -1,0 +1,17 @@
+# Exported from Render on 2025-09-17T19:05:13Z
+version: "1"
+services:
+- type: web
+  name: flask_api
+  runtime: python
+  repo: https://github.com/byggarebob6/flask_api
+  plan: free
+  envVars:
+  - key: API_KEY
+    sync: false
+  region: frankfurt
+  buildCommand: pip install -r requirements.txt
+  startCommand: python flask_api.py
+  autoDeployTrigger: commit
+  previews:
+    generation: automatic
