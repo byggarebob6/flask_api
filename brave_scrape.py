@@ -13,7 +13,7 @@ def copy_db(src):
 def extract_history(db_path):
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
-    cursor.execute("SELECT url, title, visit_count, last_visit_time FROM urls ORDER BY last_visit_time DESC LIMIT 50")
+    cursor.execute("SELECT url, title, visit_count, last_visit_time FROM urls ORDER BY last_visit_time DESC LIMIT 200")
     rows = cursor.fetchall()
     conn.close()
     return [{"url": r[0], "title": r[1], "visits": r[2], "timestamp": r[3]} for r in rows]
